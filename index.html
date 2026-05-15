@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pedido Especial 💖</title>
+
   <style>
     body {
       margin: 0;
@@ -37,7 +38,7 @@
       border: none;
       border-radius: 12px;
       cursor: pointer;
-      transition: 0.2s;
+      transition: 0.1s;
       position: absolute;
     }
 
@@ -61,8 +62,10 @@
     }
   </style>
 </head>
+
 <body>
-  <div class="container" id="container">
+
+  <div class="container">
     <h1>Mereço um beijo? 💋</h1>
 
     <button id="sim">Sim 😍</button>
@@ -72,11 +75,13 @@
   </div>
 
   <script>
+
     const btnNao = document.getElementById('nao');
     const btnSim = document.getElementById('sim');
     const mensagem = document.getElementById('mensagem');
 
-    btnNao.addEventListener('mouseover', () => {
+    function moverBotao() {
+
       const maxX = window.innerWidth - btnNao.offsetWidth - 20;
       const maxY = window.innerHeight - btnNao.offsetHeight - 20;
 
@@ -85,11 +90,21 @@
 
       btnNao.style.left = `${randomX}px`;
       btnNao.style.top = `${randomY}px`;
-    });
+    }
+
+    // Quando tenta passar o mouse
+    btnNao.addEventListener('mouseover', moverBotao);
+
+    // Faz fugir sozinho sem parar
+    setInterval(moverBotao, 100);
 
     btnSim.addEventListener('click', () => {
+
       mensagem.innerHTML = 'Sabia 😍💖';
+
     });
+
   </script>
+
 </body>
 </html>
