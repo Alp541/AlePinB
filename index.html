@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pedido Especial 💖</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ffb6c1, #ffe4e1);
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+      background: rgba(255,255,255,0.9);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      position: relative;
+    }
+
+    h1 {
+      color: #d63384;
+      margin-bottom: 30px;
+      font-size: 2rem;
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.2s;
+      position: absolute;
+    }
+
+    #sim {
+      background: #28a745;
+      color: white;
+      left: 90px;
+    }
+
+    #nao {
+      background: #dc3545;
+      color: white;
+      left: 240px;
+    }
+
+    .mensagem {
+      margin-top: 100px;
+      font-size: 1.5rem;
+      color: #d63384;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="container">
+    <h1>Mereço um beijo? 💋</h1>
+
+    <button id="sim">Sim 😍</button>
+    <button id="nao">Não 😅</button>
+
+    <div class="mensagem" id="mensagem"></div>
+  </div>
+
+  <script>
+    const btnNao = document.getElementById('nao');
+    const btnSim = document.getElementById('sim');
+    const mensagem = document.getElementById('mensagem');
+
+    btnNao.addEventListener('mouseover', () => {
+      const maxX = window.innerWidth - btnNao.offsetWidth - 20;
+      const maxY = window.innerHeight - btnNao.offsetHeight - 20;
+
+      const randomX = Math.floor(Math.random() * maxX);
+      const randomY = Math.floor(Math.random() * maxY);
+
+      btnNao.style.left = `${randomX}px`;
+      btnNao.style.top = `${randomY}px`;
+    });
+
+    btnSim.addEventListener('click', () => {
+      mensagem.innerHTML = 'Sabia 😍💖';
+    });
+  </script>
+</body>
+</html>
