@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pedido Especial 💖</title>
+
+  <style>
+
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ffb6c1, #ffe4e1);
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+      background: rgba(255,255,255,0.95);
+      padding: 40px 20px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      position: relative;
+      min-height: 250px;
+    }
+
+    h1 {
+      color: #d63384;
+      margin-bottom: 40px;
+      font-size: 2rem;
+    }
+
+    button {
+      padding: 15px 25px;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.15s;
+      position: absolute;
+    }
+
+    #sim {
+      background: #28a745;
+      color: white;
+      left: 70px;
+      top: 120px;
+    }
+
+    #nao {
+      background: #dc3545;
+      color: white;
+      left: 210px;
+      top: 120px;
+    }
+
+    .mensagem {
+      margin-top: 140px;
+      font-size: 1.5rem;
+      color: #d63384;
+      font-weight: bold;
+    }
+
+    @media (max-width: 500px) {
+
+      h1 {
+        font-size: 1.6rem;
+      }
+
+      button {
+        font-size: 1rem;
+        padding: 14px 20px;
+      }
+
+      #sim {
+        left: 40px;
+      }
+
+      #nao {
+        left: 180px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>Mereço um beijo? 💋</h1>
+
+    <button id="sim">Sim 😍</button>
+    <button id="nao">Não 😅</button>
+
+    <div class="mensagem" id="mensagem"></div>
+
+  </div>
+
+  <script>
+
+    const btnNao = document.getElementById('nao');
+    const btnSim = document.getElementById('sim');
+    const mensagem = document.getElementById('mensagem');
+
+    function moverBotao() {
+
+      const maxX = window.innerWidth - btnNao.offsetWidth - 20;
+      const maxY = window.innerHeight - btnNao.offsetHeight - 20;
+
+      const randomX = Math.floor(Math.random() * maxX);
+      const randomY = Math.floor(Math.random() * maxY);
+
+      btnNao.style.left = `${randomX}px`;
+      btnNao.style.top = `${randomY}px`;
+    }
+
+    // Fugir quando toca ou passa o mouse
+    btnNao.addEventListener('mouseover', moverBotao);
+    btnNao.addEventListener('touchstart', moverBotao);
+
+    // Velocidade mais suave
+    setInterval(moverBotao, 500);
+
+    btnSim.addEventListener('click', () => {
+
+      mensagem.innerHTML = 'Sabia 😍💖';
+
+    });
+
+  </script>
+
+</body>
+</html>
